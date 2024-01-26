@@ -10,9 +10,20 @@ public class Reduce {
 
         Integer result = numbers.stream().reduce(0, (partialResult, number)-> partialResult + number );
         System.out.println("Result sum: "+ result);
-        result =0;
+        result = 0;
         //Uses method reference
         result = numbers.stream().reduce(0, Integer::sum);
         System.out.println("Result sum: "+ result);
+    }
+
+    public static void concatLetters() {
+        List<String> letters = Arrays.asList("a", "b", "c", "d", "e", "f");
+
+        String concatLetters = letters.stream().reduce("", (partialSum, letter) -> partialSum + letter);
+        System.out.println("Result sum letters: " + concatLetters);
+        concatLetters = null;
+        // use method reference
+        concatLetters = letters.stream().reduce("", String::concat);
+        System.out.println("Result sum letters: " + concatLetters);
     }
 }

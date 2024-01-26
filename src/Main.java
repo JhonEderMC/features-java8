@@ -1,5 +1,9 @@
+import reduce.Reduce;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        // Reduce
+        //Reduce.sumNumbers();
+        Reduce.concatLetters();
     }
 }
