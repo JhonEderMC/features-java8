@@ -26,4 +26,13 @@ public class Reduce {
         concatLetters = letters.stream().reduce("", String::concat);
         System.out.println("Result sum letters: " + concatLetters);
     }
+
+    public static void concatUpperCaseLetters() {
+        List<String> letters = Arrays.asList("a", "b", "c", "d", "e", "f");
+        String upperCaseConcatLetters = letters.stream().reduce("", (partialResult, letter) -> partialResult + letter.toUpperCase());
+        System.out.println(upperCaseConcatLetters);
+        //We're not use method reference with toUpperCase this a local opertion to reference
+    }
+
+
 }
