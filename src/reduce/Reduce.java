@@ -10,9 +10,8 @@ public class Reduce {
 
 
     public static void sumNumbers() {
-        Integer result = numbers.stream().reduce(0, (partialResult, number)-> partialResult + number );
+        int result = numbers.stream().reduce(0, (partialResult, number)-> partialResult + number );
         System.out.println("Result sum: "+ result);
-        result = 0;
         //Uses method reference
         result = numbers.stream().reduce(0, Integer::sum);
         System.out.println("Result sum: "+ result);
@@ -21,7 +20,6 @@ public class Reduce {
     public static void concatLetters() {
         String concatLetters = letters.stream().reduce("", (partialSum, letter) -> partialSum + letter);
         System.out.println("Result sum letters: " + concatLetters);
-        concatLetters = null;
         // use method reference
         concatLetters = letters.stream().reduce("", String::concat);
         System.out.println("Result sum letters: " + concatLetters);
@@ -35,7 +33,13 @@ public class Reduce {
     }
 
     public  static void sumNumbersParallel() {
-
+        Integer sum = numbers.parallelStream().reduce(0, Integer::sum, Integer::sum);
+        System.out.println("Sum: " + sum);
+        /*
+        * When a stream executes in parallel, the Java runtime splits the stream into multiple substreams. In such cases,
+        * we need to use a function to combine the results of the substreams into a single one. This is the role of the
+        * combiner — in the above snippet, it’s the Integer::sum method reference.
+        * */
     }
 
 
