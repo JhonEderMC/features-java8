@@ -42,5 +42,14 @@ public class Reduce {
         * */
     }
 
+    public static void caculateUsersAge() {
+        List<User> users = Arrays.asList(new User("John", 30), new User("Julie", 35));
+
+        int totalAgeUsers = users.stream().reduce(0, (partialAgeResul, user) -> partialAgeResul + user.getAge(), Integer::sum);
+        System.out.println("Sum age: " + totalAgeUsers);
+    }
+
+
+
 
 }
