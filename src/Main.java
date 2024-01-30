@@ -8,5 +8,7 @@ public class Main {
         Reduce.concatUpperCaseLetters();
         Reduce.sumNumbersParallel();
         Reduce.caculateUsersAge();
+        //Reduce.divZeroExecption();
+        //Reduce.catZeroExepction();
     }
 }

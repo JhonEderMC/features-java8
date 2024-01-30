@@ -2,8 +2,12 @@ package reduce;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Reduce {
+
+    private static   Logger logger = Logger.getLogger(Reduce.class.getName());;
 
     public static List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
     public static List<String> letters = Arrays.asList("a", "b", "c", "d", "e", "f");
@@ -11,7 +15,7 @@ public class Reduce {
 
     public static void sumNumbers() {
         int result = numbers.stream().reduce(0, (partialResult, number)-> partialResult + number );
-        System.out.println("Result sum: "+ result);
+        logger.log (Level.INFO, "The sum is: " + String.valueOf(result));
         //Uses method reference
         result = numbers.stream().reduce(0, Integer::sum);
         System.out.println("Result sum: "+ result);
@@ -49,7 +53,26 @@ public class Reduce {
         System.out.println("Sum age: " + totalAgeUsers);
     }
 
+    public static void divZeroExecption() {
+        int divider = 0; // if it's zero then throw exeption
+        int sum = numbers.stream().reduce(0, (a, b) -> a/divider + b/divider);
+        System.out.println("sum div: " +sum);
+    }
 
+    public static void cathZeroExepction() {
+        int divider = 0;
+        int sum = numbers.stream().reduce(0, (partialAcumulate, number) -> partialAcumulate + divider(number, divider));
+        logger.log(Level.INFO,"The sum cath is: "+ String.valueOf(sum));
+    }
+
+    private static int divider( Integer number, int divider) {
+        try {
+            return number / divider;
+        } catch (ArithmeticException e) {
+            logger.log(Level.SEVERE, "Zero divition is not define");
+            return 0;
+        }
+    }
 
 
 }
