@@ -1,9 +1,13 @@
 package reduce;
 
+
+import com.baeldung.streams.reduce.entities.Rating;
+
 public class User {
 
     private String name;
     private int age;
+    private final com.baeldung.streams.reduce.entities.Rating rating = new Rating();// TODO: revisar esta parte de raiting que es null por ende falla.
 
     public User (){}
 
@@ -27,4 +31,12 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    /*public void setRating(Rating rating) {
+        this.rating = rating;
+    }*/
 }

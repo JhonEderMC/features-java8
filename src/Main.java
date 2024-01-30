@@ -10,5 +10,6 @@ public class Main {
         Reduce.caculateUsersAge();
         //Reduce.divZeroExecption();
         //Reduce.catZeroExepction();
+        Reduce.ratingAverage();
     }
 }

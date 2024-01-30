@@ -1,5 +1,8 @@
 package reduce;
 
+import reduce.rating.Rating;
+import reduce.rating.Review;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
@@ -73,6 +76,25 @@ public class Reduce {
             return 0;
         }
     }
+
+    public static void ratingAverage() {
+        Rating averageRating = createListUsers().stream().reduce(new Rating(), ((rating, user) ->
+                Rating.average(rating, user.getRating())), Rating::average);
+        logger.log(Level.INFO, "averageRating: " + averageRating.getPoints());
+    }
+
+    private static  List<User> createListUsers() {
+        User john = new User("John", 30);
+        john.getRating().add(new Review(5, ""));
+        john.getRating().add(new Review(3, "not bad"));
+        User julie = new User("Julie", 35);
+        john.getRating().add(new Review(4, "great!"));
+        john.getRating().add(new Review(2, "terrible experience"));
+        john.getRating().add(new Review(4, ""));
+        return Arrays.asList(john, julie);
+    }
+
+
 
 
 }
