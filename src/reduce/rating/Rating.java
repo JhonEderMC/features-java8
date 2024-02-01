@@ -23,6 +23,7 @@ public class Rating {
         Rating ratingCombined = new Rating();
         ratingCombined.reviews = new ArrayList<Review>(rating1.reviews);
         rating2.reviews.forEach(ratingCombined::add);
+        ratingCombined.comPuteRating();
         return  ratingCombined;
     }
 
