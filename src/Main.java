@@ -16,5 +16,6 @@ public class Main {
         StreamUseCase.waysCreateFlowStream();
         StreamUseCase.useDistinct();
         StreamUseCase.anyMatchLetter();
+        StreamUseCase.filtering();
     }
 }

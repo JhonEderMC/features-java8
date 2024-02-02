@@ -1,5 +1,6 @@
 package stream;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import java.util.stream.Stream;
@@ -33,6 +34,25 @@ public class StreamUseCase {
                 return true;
             }
         }*/
+    }
+
+    public static  void filtering() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("One");
+        list.add("OneAndOnly");
+        list.add("Derek");
+        list.add("Change");
+        list.add("factory");
+        list.add("justBefore");
+        list.add("Italy");
+        list.add("Italy");
+        list.add("Thursday");
+        list.add("");
+        list.add("");
+
+        Stream filteredLetters =list.stream().filter((letter) ->letter.contains("d"));
+        System.out.println("Words that Contains D: ");
+        filteredLetters.forEach((letter) ->System.out.print(" " + letter));
     }
 
     public static <T> void printValues(T array) {
