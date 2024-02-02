@@ -23,6 +23,18 @@ public class StreamUseCase {
         System.out.println("\nCount distinct numbers: " + countNumbersDistinct);
     }
 
+    public static void anyMatchLetter() {
+        String [] letters = new String[]{"a", "b", "c", "d", "e", "f"};
+        boolean hasLetterC = Arrays.stream(letters).anyMatch( (letter)-> letter.matches("c"));
+        System.out.println("The array has a letter: "+ hasLetterC);
+
+       /* for (String letter: letters) { // Legacy code
+            if(letter.matches("c")) {
+                return true;
+            }
+        }*/
+    }
+
     public static <T> void printValues(T array) {
         if(array instanceof Stream) {
             printStream((Stream<T>) array);
