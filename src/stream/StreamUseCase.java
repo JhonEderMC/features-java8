@@ -1,8 +1,10 @@
 package stream;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class StreamUseCase {
@@ -53,6 +55,27 @@ public class StreamUseCase {
         Stream filteredLetters =list.stream().filter((letter) ->letter.contains("d"));
         System.out.println("Words that Contains D: ");
         filteredLetters.forEach((letter) ->System.out.print(" " + letter));
+    }
+
+    /**
+     * To convert elements of a Stream by applying a special function to them and to collect these new elements into a
+     * Stream, we can use the map() method:
+     */
+    public static void mapCovertToPath() {
+        List<String> uris = new ArrayList<>();
+        uris.add("C:\\My.txt");
+        uris.add("D:\\Documents\\code");
+
+        Stream<Path> streamPath = uris.stream().map(Path::of);
+    }
+
+    public static void  testAddElementFirstArray() {
+        List list = List.of(1,2,3,4,5,6,7);
+        list = new ArrayList(list);
+
+        list.add(0, list);
+        printStream(Stream.of(list));
+
     }
 
     public static <T> void printValues(T array) {

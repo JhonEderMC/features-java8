@@ -13,9 +13,11 @@ public class Main {
         Reduce.ratingAverage();*/
 
         // Stream
-        StreamUseCase.waysCreateFlowStream();
-        StreamUseCase.useDistinct();
-        StreamUseCase.anyMatchLetter();
-        StreamUseCase.filtering();
+        //StreamUseCase.waysCreateFlowStream();
+        //StreamUseCase.useDistinct();
+        //StreamUseCase.anyMatchLetter();
+        //StreamUseCase.filtering();
+        StreamUseCase.testAddElementFirstArray();
+        StreamUseCase.mapCovertToPath();
     }
 }
