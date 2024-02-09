@@ -1,3 +1,4 @@
+import newinterface.RunCasesInterface;
 import stream.StreamUseCase;
 
 public class Main {
@@ -19,5 +20,15 @@ public class Main {
         //StreamUseCase.filtering();
         StreamUseCase.testAddElementFirstArray();
         StreamUseCase.mapCovertToPath();
+
+        //Interface:
+        Main.printSeparetor();
+        System.out.println("---------- Interface ------------");
+        new RunCasesInterface();
+
+    }
+
+    public static void printSeparetor() {
+        System.out.println("---------------------------------------------------------------------------------------------------");
     }
 }

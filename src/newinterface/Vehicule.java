@@ -8,4 +8,8 @@ public interface Vehicule {
     static String producer() {
         return "N&F Vechicules";
     }
+
+    default String getOverview() {
+        return "ATV made by " + producer();
+    }
 }
