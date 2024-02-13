@@ -36,4 +36,8 @@ public class User {
         return rating;
     }
 
+    public static boolean isRealUser(User user) {
+        return user.getAge() > 0 && !user.getName().isEmpty();
+    }
+
 }

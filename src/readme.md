@@ -10,3 +10,6 @@ One of the major new features in Java 8 is the introduction of the stream functi
 Before Java 8, interfaces could have only public abstract methods. It was not possible to add new functionality to the existing interface without forcing all implementing classes to create an implementation of the new methods, nor was it possible to create interface methods with an implementation.
 
 Starting with Java 8, interfaces can have static and default methods that, despite being declared in an interface, have a defined behavior.
+
+## Method references
+Method reference can be used as a shorter and more readable alternative for a lambda expression that only calls an existing method. There are four variants of method references.

@@ -1,3 +1,4 @@
+import methodreference.MethodReference;
 import newinterface.RunCasesInterface;
 import stream.StreamUseCase;
 
@@ -25,7 +26,12 @@ public class Main {
         Main.printSeparetor();
         System.out.println("---------- Interface ------------");
         new RunCasesInterface();
+        Main.printSeparetor();
 
+        //Method Reference
+        Main.printSeparetor();
+        System.out.println("---------- Method Reference ------------");
+        MethodReference.staticMethodReference();
     }
 
     public static void printSeparetor() {
