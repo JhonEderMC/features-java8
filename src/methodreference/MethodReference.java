@@ -7,7 +7,8 @@ import java.util.List;
 
 public class MethodReference {
 
-    public static List<User> users = Arrays.asList(new User("Luisa", 20), new User(("Daniel"), 30));
+    public static List<User> users = Arrays.asList(new User("Luisa", 20), new User(("Daniel"), 30),
+            new User("", 20));
 
     /**
      * The reference to a static method holds the syntax ContainingClass::methodName.
@@ -19,10 +20,20 @@ public class MethodReference {
         System.out.println("is Real: " + isReal);
     }
 
+    /**
+     * The reference to an instance method holds the syntax ContainingClass::methodName.
+     */
     public static void referenceInstanceMethod() {
         //Some user has legal name
         boolean isLegalName = users.stream().anyMatch(User::isLegalName);
         System.out.println("Some user has legal name: "+ isLegalName);
+    }
+    /**
+     * The reference to particular Type Instance method holds the syntax ContainingClass::methodName.
+     */
+    public static void referenceInstanceMethodObjectParticularType() {
+        Long numberEmptyNames = users.stream().map(User::getName).filter(String::isEmpty).count();
+        System.out.println("Number of user with empty name: " + numberEmptyNames);
     }
 
 }

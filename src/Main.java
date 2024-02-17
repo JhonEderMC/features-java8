@@ -33,6 +33,7 @@ public class Main {
         System.out.println("---------- Method Reference ------------");
         MethodReference.staticMethodReference();
         MethodReference.referenceInstanceMethod();
+        MethodReference.referenceInstanceMethodObjectParticularType();
     }
 
     public static void printSeparetor() {
