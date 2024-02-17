@@ -40,4 +40,8 @@ public class User {
         return user.getAge() > 0 && !user.getName().isEmpty();
     }
 
+    public boolean isLegalName() {
+        return this.name != null && this.name.length() > 3 && this.name.matches("^[A-Za-z\s]+$");
+    }
+
 }

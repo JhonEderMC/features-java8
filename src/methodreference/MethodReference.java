@@ -19,4 +19,10 @@ public class MethodReference {
         System.out.println("is Real: " + isReal);
     }
 
+    public static void referenceInstanceMethod() {
+        //Some user has legal name
+        boolean isLegalName = users.stream().anyMatch(User::isLegalName);
+        System.out.println("Some user has legal name: "+ isLegalName);
+    }
+
 }

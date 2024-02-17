@@ -32,6 +32,7 @@ public class Main {
         Main.printSeparetor();
         System.out.println("---------- Method Reference ------------");
         MethodReference.staticMethodReference();
+        MethodReference.referenceInstanceMethod();
     }
 
     public static void printSeparetor() {
