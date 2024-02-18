@@ -16,6 +16,13 @@ public class User {
         this.age = age;
     }
 
+    public User(User user) {
+        if(user != null) {
+            this.name = user.getName();
+            this.age = user.getAge();
+        }
+    }
+
     public String getName() {
         return name;
     }

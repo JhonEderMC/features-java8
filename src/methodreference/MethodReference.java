@@ -4,6 +4,7 @@ import reduce.User;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class MethodReference {
 
@@ -35,5 +36,13 @@ public class MethodReference {
         Long numberEmptyNames = users.stream().map(User::getName).filter(String::isEmpty).count();
         System.out.println("Number of user with empty name: " + numberEmptyNames);
     }
+
+    /**
+     * The reference to particular Type Instance method holds the syntax ContainingClass::methodName.
+     */
+    public static void referenceToConstructor() {
+        Stream<User> usrs = users.stream().map(User::new);
+    }
+
 
 }
