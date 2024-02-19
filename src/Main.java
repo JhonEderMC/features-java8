@@ -5,6 +5,8 @@ import stream.StreamUseCase;
 public class Main {
     public static void main(String[] args) {
         // Reduce
+        //Main.printSeparetor();
+        //System.out.println("---------- Reduce ------------");
        /* Reduce.sumNumbers();
         Reduce.concatLetters();
         Reduce.concatUpperCaseLetters();
@@ -12,15 +14,19 @@ public class Main {
         Reduce.caculateUsersAge();
         //Reduce.divZeroExecption();
         //Reduce.catZeroExepction();
-        Reduce.ratingAverage();*/
+        Reduce.ratingAverage();
+        Main.printSeparetor();*/
 
         // Stream
+        //Main.printSeparetor();
+        //System.out.println("---------- Stream ------------");
         //StreamUseCase.waysCreateFlowStream();
         //StreamUseCase.useDistinct();
         //StreamUseCase.anyMatchLetter();
         //StreamUseCase.filtering();
         StreamUseCase.testAddElementFirstArray();
         StreamUseCase.mapCovertToPath();
+        //Main.printSeparetor();
 
         //Interface:
         Main.printSeparetor();
