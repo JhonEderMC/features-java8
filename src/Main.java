@@ -1,5 +1,6 @@
 import methodreference.MethodReference;
 import newinterface.RunCasesInterface;
+import optional.UseOptional;
 import stream.StreamUseCase;
 
 public class Main {
@@ -40,6 +41,9 @@ public class Main {
         MethodReference.staticMethodReference();
         MethodReference.referenceInstanceMethod();
         MethodReference.referenceInstanceMethodObjectParticularType();
+
+        //Optional
+        UseOptional.orElseGet();
     }
 
     public static void printSeparetor() {
