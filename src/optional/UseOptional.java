@@ -1,8 +1,12 @@
 package optional;
 
+import reduce.Reduce;
+import reduce.User;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class UseOptional {
     /**
@@ -42,5 +46,22 @@ public class UseOptional {
         double randomNumber = Math.random()*10;
         int random = (int) randomNumber;
         return random % 2 == 0 ? List.of("name", "age", "weigh") : null;
+    }
+
+    /**
+     * Assume we have an object of type User that has a field of type Address with a field street of type String,
+     * and we need to return a value of the street field if some exist or a default value if street is null:
+     */
+    public static void defaultAdressIfnotIxist() {
+        User user = new User();
+        Optional<User> optionalUser = Optional.ofNullable(user);
+        String userAdress = optionalUser.map(User::getAdress).stream().findFirst().orElse("not specified");
+    }
+
+    public  static void listUserAdress() {
+        List<String> adress = Reduce.getUsers().stream().map(User::getAdress)
+                .map((string) -> Optional.ofNullable(string)
+                        .orElse("not specified")).collect(Collectors.toList()
+                );
     }
 }

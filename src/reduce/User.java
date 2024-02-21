@@ -8,6 +8,7 @@ public class User {
     private String name;
     private int age;
     private final Rating rating = new Rating();// TODO: revisar esta parte de raiting que es null por ende falla.
+    private String adress;
 
     public User (){}
 
@@ -51,4 +52,11 @@ public class User {
         return this.name != null && this.name.length() > 3 && this.name.matches("^[A-Za-z\s]+$");
     }
 
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
 }

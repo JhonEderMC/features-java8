@@ -44,6 +44,8 @@ public class Main {
 
         //Optional
         UseOptional.orElseGet();
+        UseOptional.defaultAdressIfnotIxist();
+        UseOptional.listUserAdress();
     }
 
     public static void printSeparetor() {

@@ -85,13 +85,19 @@ public class Reduce {
 
     private static  List<User> createListUsers() {
         User john = new User("John", 30);
+        john.setAdress("cra 20b-45");
         john.getRating().add(new Review(5, ""));
         john.getRating().add(new Review(3, "not bad"));
         User julie = new User("Julie", 35);
+        julie.setAdress("cll 15# 14-20");
         john.getRating().add(new Review(4, "great!"));
         john.getRating().add(new Review(2, "terrible experience"));
         john.getRating().add(new Review(4, ""));
-        return Arrays.asList(john, julie);
+        return Arrays.asList(john, julie, new User());
+    }
+
+    public static List<User> getUsers() {
+        return  createListUsers();
     }
 
 
