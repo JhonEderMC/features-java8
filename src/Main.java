@@ -1,14 +1,15 @@
 import methodreference.MethodReference;
 import newinterface.RunCasesInterface;
 import optional.UseOptional;
+import reduce.Reduce;
 import stream.StreamUseCase;
 
 public class Main {
     public static void main(String[] args) {
         // Reduce
-        //Main.printSeparetor();
-        //System.out.println("---------- Reduce ------------");
-       /* Reduce.sumNumbers();
+        Main.printSeparetor();
+        System.out.println("---------- Reduce ------------");
+        Reduce.sumNumbers();
         Reduce.concatLetters();
         Reduce.concatUpperCaseLetters();
         Reduce.sumNumbersParallel();
@@ -16,18 +17,20 @@ public class Main {
         //Reduce.divZeroExecption();
         //Reduce.catZeroExepction();
         Reduce.ratingAverage();
-        Main.printSeparetor();*/
+        Reduce.minNumber();
+        Reduce.maxNumber();
+        Main.printSeparetor();
 
         // Stream
-        //Main.printSeparetor();
-        //System.out.println("---------- Stream ------------");
+        Main.printSeparetor();
+        System.out.println("---------- Stream ------------");
         //StreamUseCase.waysCreateFlowStream();
         //StreamUseCase.useDistinct();
         //StreamUseCase.anyMatchLetter();
         //StreamUseCase.filtering();
         StreamUseCase.testAddElementFirstArray();
         StreamUseCase.mapCovertToPath();
-        //Main.printSeparetor();
+        Main.printSeparetor();
 
         //Interface:
         Main.printSeparetor();

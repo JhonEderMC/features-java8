@@ -12,7 +12,8 @@ public class Reduce {
 
     private static   Logger logger = Logger.getLogger(Reduce.class.getName());;
 
-    public static List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+    private static final List<Integer> numbers = List.of(1,2,3,5,3,-1,10,-11,7);
+
     public static List<String> letters = Arrays.asList("a", "b", "c", "d", "e", "f");
 
 
@@ -75,6 +76,16 @@ public class Reduce {
             logger.log(Level.SEVERE, "Zero divition is not define");
             return 0;
         }
+    }
+
+    public static void minNumber() {
+        Integer min = numbers.stream().reduce(0, (minNumber, number) -> minNumber = minNumber <= number ? minNumber : number);
+        System.out.println("Min number is: " +  min);
+    }
+
+    public static void maxNumber() {
+        Integer max = numbers.stream().reduce(0, (maxNumber, number) -> maxNumber < number ? number : maxNumber);
+        System.out.println("Max number is: " + max);
     }
 
     public static void ratingAverage() {
