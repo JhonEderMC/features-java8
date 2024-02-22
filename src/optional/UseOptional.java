@@ -64,4 +64,22 @@ public class UseOptional {
                         .orElse("not specified")).collect(Collectors.toList()
                 );
     }
+
+    /**
+     * Another use case of Optional is changing NPE with another exception.
+     */
+    public static void managmentExeption() throws Exception {
+        // So, as we did previously, let's try to do this in pre-java 8's style
+        String value = null;
+        String result = "";
+       /* try {
+            result = value.toUpperCase();
+        } catch ( NullPointerException exception) {
+            throw  new CustomExeption();
+        }*/
+
+        //result = Optional.of(value).orElseThrow(() ->new Exception("new Exeption"));
+        Optional<String> optionalString = Optional.ofNullable(value);
+        result = optionalString.orElseThrow(Exception::new).toUpperCase();
+    }
 }
