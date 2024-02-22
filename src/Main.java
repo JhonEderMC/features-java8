@@ -24,10 +24,10 @@ public class Main {
         // Stream
         Main.printSeparetor();
         System.out.println("---------- Stream ------------");
-        //StreamUseCase.waysCreateFlowStream();
-        //StreamUseCase.useDistinct();
-        //StreamUseCase.anyMatchLetter();
-        //StreamUseCase.filtering();
+        StreamUseCase.waysCreateFlowStream();
+        StreamUseCase.useDistinct();
+        StreamUseCase.anyMatchLetter();
+        StreamUseCase.filtering();
         StreamUseCase.testAddElementFirstArray();
         StreamUseCase.mapCovertToPath();
         Main.printSeparetor();
