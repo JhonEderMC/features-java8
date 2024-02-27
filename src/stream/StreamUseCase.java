@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -16,8 +17,21 @@ public class StreamUseCase {
         Stream<String> streamEmpty = Stream.empty();
     }
 
+    /**
+     * We often use the empty() method upon creation to avoid returning null for streams with no element:
+     * @param list
+     * @return
+     */
     public static Stream<String> streamOf(List<String> list) {
         return list == null || list.isEmpty() ? Stream.empty() : list.stream();
+    }
+
+    /**
+     * We can also create a stream of any type of Collection (Collection, List, Set):
+     */
+    public static void streamOfCollection() {
+        Collection<String> collection = Arrays.asList("a", "b", "c");
+        Stream<String> streamOfCollection = collection.stream();
     }
 
     public static void waysCreateFlowStream() {
