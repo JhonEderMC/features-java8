@@ -9,6 +9,17 @@ import java.util.stream.Stream;
 
 public class StreamUseCase {
 
+    /**
+     * Create and an empty Stream
+     */
+    public static void emptyStream() {
+        Stream<String> streamEmpty = Stream.empty();
+    }
+
+    public static Stream<String> streamOf(List<String> list) {
+        return list == null || list.isEmpty() ? Stream.empty() : list.stream();
+    }
+
     public static void waysCreateFlowStream() {
         String [] arr = new String[] {"a", "b", "c", "d"};
         printValues(arr);
