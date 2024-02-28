@@ -65,6 +65,16 @@ public class StreamUseCase {
         printStream(stringStream);
     }
 
+    /**
+     * The first element of the resulting stream is the first parameter of the iterate() method. When creating every following element,
+     * the specified function is applied to the previous element. In the example next the second element will be 42.
+     */
+    public static void streamIterate() {
+        Stream<Integer> integerStream = Stream.iterate(40, (n)-> n+2 ).limit(20);
+        System.out.println("Stream Iterate: ");
+        printStream(integerStream);
+    }
+
     public static void  waysCreateFlowStream() {
         String [] arr = new String[] {"a", "b", "c", "d"};
         printValues(arr);
