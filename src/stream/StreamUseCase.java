@@ -34,6 +34,19 @@ public class StreamUseCase {
         Stream<String> streamOfCollection = collection.stream();
     }
 
+    /**
+     * An array can also be the source of a stream:
+     */
+    public static void streamOfArray() {
+        Stream<String> streamOfArray = Stream.of("a", "b", "c", "d", "e");
+
+        //We can also create a stream out of an existing array or of part of an array
+        String [] arr = new String[] {"a", "b", "c"};
+        Stream<String> streamOfArrayFull = Arrays.stream(arr);
+        Stream<String> streaOfArrayPart = Arrays.stream(arr, 1, 3);
+        printStream(streaOfArrayPart);
+    }
+
     public static void waysCreateFlowStream() {
         String [] arr = new String[] {"a", "b", "c", "d"};
         printValues(arr);
