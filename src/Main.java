@@ -25,6 +25,7 @@ public class Main {
         Main.printSeparetor();
         System.out.println("---------- Stream ------------");
         StreamUseCase.streamOfArray();
+        StreamUseCase.streamBuilder();
         StreamUseCase.waysCreateFlowStream();
         StreamUseCase.useDistinct();
         StreamUseCase.anyMatchLetter();

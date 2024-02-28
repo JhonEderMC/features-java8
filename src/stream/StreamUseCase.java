@@ -47,7 +47,16 @@ public class StreamUseCase {
         printStream(streaOfArrayPart);
     }
 
-    public static void waysCreateFlowStream() {
+    /**
+     * When builder is used, the desired type should be additionally specified in the right part of the statement,
+     * otherwise the build() method will create an instance of the Stream<Object>:
+     */
+    public static void streamBuilder() {
+        Stream<String> streamBuilder =  Stream.<String>builder().add("b").add("u").add("i").add("l").add("d").add("e").add("r").build();
+        printStream(streamBuilder);
+    }
+
+    public static void  waysCreateFlowStream() {
         String [] arr = new String[] {"a", "b", "c", "d"};
         printValues(arr);
         Stream<String> stream =  Arrays.stream(arr);
