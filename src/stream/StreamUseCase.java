@@ -56,6 +56,15 @@ public class StreamUseCase {
         printStream(streamBuilder);
     }
 
+    /**
+     * The next code creates a sequence of ten strings with the value “element.”
+     */
+    public static  void streamGenerate() {
+        Stream<String> stringStream = Stream.generate(() -> "element").limit(10);
+        System.out.println("Stream Generate: ");
+        printStream(stringStream);
+    }
+
     public static void  waysCreateFlowStream() {
         String [] arr = new String[] {"a", "b", "c", "d"};
         printValues(arr);
