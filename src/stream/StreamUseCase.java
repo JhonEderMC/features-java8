@@ -3,6 +3,7 @@ package stream;
 import java.nio.file.Path;
 import java.util.*;
 
+import java.util.regex.Pattern;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -107,6 +108,18 @@ public class StreamUseCase {
         DoubleStream doubleStream = new Random().doubles(4);
         System.out.print("Double Stream: ");
         doubleStream.forEach(System.out::print);
+        System.out.println();
+    }
+
+    public static void StreamOfString() {
+        IntStream intStream = "abcd".chars();
+        System.out.print("int stream from abcd.chars(): ");
+        intStream.forEach((a)-> System.out.print(" "+ a+ " "));
+        System.out.println();
+        // The following example breaks a String into sub-strings according to specified RegEx:
+        Stream<String> stringStream = Pattern.compile(",").splitAsStream("a,b,c,d,e,f");
+        System.out.print("Stream of string from pattern a, b , c ,d ,e , f:  ");
+        stringStream.forEach((a)-> System.out.print(" " + a));
         System.out.println();
     }
 
