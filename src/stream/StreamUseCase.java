@@ -6,6 +6,8 @@ import java.util.Arrays;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 public class StreamUseCase {
@@ -61,7 +63,7 @@ public class StreamUseCase {
      */
     public static  void streamGenerate() {
         Stream<String> stringStream = Stream.generate(() -> "element").limit(10);
-        System.out.println("Stream Generate: ");
+        System.out.print("Stream Generate: ");
         printStream(stringStream);
     }
 
@@ -71,8 +73,35 @@ public class StreamUseCase {
      */
     public static void streamIterate() {
         Stream<Integer> integerStream = Stream.iterate(40, (n)-> n+2 ).limit(20);
-        System.out.println("Stream Iterate: ");
+        System.out.print("Stream Iterate: ");
         printStream(integerStream);
+    }
+
+    /**
+     * Java 8 offers the possibility to create streams out of three primitive types: int, long and double. As Stream<T>
+     * is a generic interface, and there is no way to use primitives as a type parameter with generics, three new special
+     * interfaces were created: IntStream, LongStream, DoubleStream.
+     */
+
+    public static void streamPrimitivesIntLongDouble() {
+        /*
+           The range(int startInclusive, int endExclusive) method creates an ordered stream from the first parameter to
+           the second parameter. It increments the value of subsequent elements with the step equal to 1. The result
+           doesn’t include the last parameter, it is just an upper bound of the sequence.
+         */
+        IntStream integerStream = IntStream.range(1, 7);
+        System.out.print("Int Stream: ");
+        integerStream.forEach(System.out::print);
+        System.out.println();
+        /*
+            The rangeClosed(int startInclusive, int endInclusive) method does the same thing with only one difference,
+            the second element is included. We can use these two methods to generate any of the three types of streams
+            of primitives.
+         */
+        LongStream longStream = LongStream.rangeClosed(1, 7);
+        System.out.print("Long Stream: ");
+        longStream.forEach(System.out::print);
+        System.out.println();
     }
 
     public static void  waysCreateFlowStream() {

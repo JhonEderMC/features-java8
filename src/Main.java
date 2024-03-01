@@ -28,6 +28,7 @@ public class Main {
         StreamUseCase.streamBuilder();
         StreamUseCase.streamGenerate();
         StreamUseCase.streamIterate();
+        StreamUseCase.streamPrimitivesIntLongDouble();
         StreamUseCase.waysCreateFlowStream();
         StreamUseCase.useDistinct();
         StreamUseCase.anyMatchLetter();
