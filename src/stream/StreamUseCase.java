@@ -1,11 +1,9 @@
 package stream;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
-import java.util.Collection;
-import java.util.List;
+import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
@@ -101,6 +99,14 @@ public class StreamUseCase {
         LongStream longStream = LongStream.rangeClosed(1, 7);
         System.out.print("Long Stream: ");
         longStream.forEach(System.out::print);
+        System.out.println();
+        /*
+        Since Java 8, the Random class provides a wide range of methods for generating streams of primitives. For example,
+        the following code creates a DoubleStream, which has three elements:
+         */
+        DoubleStream doubleStream = new Random().doubles(4);
+        System.out.print("Double Stream: ");
+        doubleStream.forEach(System.out::print);
         System.out.println();
     }
 
