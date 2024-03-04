@@ -1,17 +1,13 @@
 package stream;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
 import java.util.regex.Pattern;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
 public class StreamUseCase {
 
@@ -196,6 +192,25 @@ public class StreamUseCase {
         Stream<String> streamOfStrings = Files.lines(path);
         Stream<String> streamWithCharset = Files.lines(path, StandardCharsets.UTF_8);
     }
+
+    /**
+     * We can instantiate a stream, and have an accessible reference to it, as long as only intermediate operations are called.
+     * Executing a terminal operation makes a stream inaccessible.
+     */
+    public static void streamReferencing() {
+        Stream<String> stream = Stream.of("a", "b", "c", "d").filter((element) -> element.contains("b"));
+        Optional<String> anyElement = stream.findAny();
+        //However, an attempt to reuse the same reference after calling the terminal operation will trigger the IllegalStateException:
+        //Optional<String> firstElement = stream.findFirst(); -> this was consumed
+
+        //As the IllegalStateException is a RuntimeException, a compiler will not signalize about a problem. So it is very important to remember that Java 8 streams can’t be reused.
+        //So to make the previous code work properly, some changes should be made:
+        List<String> stringList = Stream.of("a", "b", "c", "d").filter((letter) -> letter.contains("b")).collect(Collectors.toList());
+        Optional<String> anyElement1 = stringList.stream().findAny();
+        Optional<String> firstElement1 = stringList.stream().findFirst();
+        //Unique way is always create to new stream
+    }
+
 
     public static void  testAddElementFirstArray() {
         List list = List.of(1,2,3,4,5,6,7);

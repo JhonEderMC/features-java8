@@ -36,6 +36,7 @@ public class Main {
         StreamUseCase.filtering();
         StreamUseCase.testAddElementFirstArray();
         StreamUseCase.mapCovertToPath();
+        StreamUseCase.streamReferencing();
         Main.printSeparetor();
 
         //Interface:
