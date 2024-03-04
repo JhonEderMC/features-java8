@@ -1,5 +1,9 @@
 package stream;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -181,6 +185,16 @@ public class StreamUseCase {
         uris.add("D:\\Documents\\code");
 
         Stream<Path> streamPath = uris.stream().map(Path::of);
+    }
+
+    /**
+     * Stream<String> streamWithCharset = Files.lines(path, StandardCharsets.UTF_8);
+     * @throws IOException
+     */
+    public static  void  streamOfFile() throws IOException {
+        Path path = Path.of("C:\\file.txt");
+        Stream<String> streamOfStrings = Files.lines(path);
+        Stream<String> streamWithCharset = Files.lines(path, StandardCharsets.UTF_8);
     }
 
     public static void  testAddElementFirstArray() {
