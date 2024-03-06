@@ -211,6 +211,31 @@ public class StreamUseCase {
         //Unique way is always create to new stream
     }
 
+    public static void pipeline() {
+        Stream<String> onceModifiedStream = Stream.of("abc", "bbcd", "cbcd").skip(1);
+        Stream<String> printString = Stream.of("abc", "bbcd", "cbcd").skip(1);
+        System.out.print("Stream.of(\"abc\", \"bbcd\", \"cbcd\").skip(1): ");
+        printString.forEach(System.out::print);
+        System.out.println();
+
+        /**
+         * If we need more than one modification, we can chain intermediate operations. Let’s assume that we also need
+         * to substitute every element of the current Stream<String> with a sub-string of the first few chars.
+         * We can do this by chaining the skip() and map() methods:
+         */
+        Stream<String> twinceModifiedString = onceModifiedStream.skip(1).map(string -> string.substring(0, 3));
+        System.out.print("onceModifiedStream.skip(1).map(string -> string.substring(0, 3)): ");
+        twinceModifiedString.forEach(System.out::print);
+
+        /**
+         * The correct and most convenient way to use streams is by a stream pipeline, which is a chain of the stream
+         * source, intermediate operations, and a terminal operation:
+         */
+        Long size = Stream.of("abc", "abc2", "abc3").skip(1)
+                .map(element -> element.substring(0, 3)).count();
+
+    }
+
 
     public static void  testAddElementFirstArray() {
         List list = List.of(1,2,3,4,5,6,7);
