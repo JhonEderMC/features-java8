@@ -273,6 +273,44 @@ public class StreamUseCase {
         System.out.println("Counter: "+ counter);
     }
 
+    /**
+     * From the performance point of view, the right order is one of the most important aspects of chaining operations in the stream pipeline
+     */
+    public static void orderOfExecution() {
+        counter = 0;
+        long size = Stream.of("abc", "abc2", "abc3").map((element)-> {
+            wasCalled();
+            System.out.println("was called XXX");
+            return element.substring(0,3);
+        }).skip(2).count();
+        System.out.println("\nStream.of(\"abc\", \"abc2\", \"abc3\").map((element)-> {\n" +
+                "            wasCalled();\n" +
+                "            return element.substring(0,3);\n" +
+                "        }).skip(2).count(); = size:  " + size + " counter: " + counter);
+        /*
+        Execution of this code will increase the value of the counter by three. This means that we called the map()
+        method of the stream three times, but the value of the size is one. So the resulting stream has just one element,
+        and we executed the expensive map() operations for no reason two out of the three times.
+
+        If we change the order of the skip() and the map() methods, the counter will increase by only one.
+         So we will call the map() method only once:
+         */
+        counter = 0;
+        size = Stream.of("abc", "abc2", "abc3").skip(2).map((element)-> {
+            wasCalled();
+            return element.substring(0,3);
+        }).count();
+        System.out.println("Stream.of(\"abc\", \"abc2\", \"abc3\").skip(2).map((element)-> {\n" +
+                "            wasCalled();\n" +
+                "            return element.substring(0,3);\n" +
+                "        }).count();  = size:" + size + " counter: " + counter );
+        /*
+            This brings us to the following rule: intermediate operations which reduce the size of the stream should be
+            placed before operations which are applying to each element. So we need to keep methods such as skip(),
+            filter(), and distinct() at the top of our stream pipeline.
+         */
+    }
+
 
     public static void  testAddElementFirstArray() {
         List list = List.of(1,2,3,4,5,6,7);

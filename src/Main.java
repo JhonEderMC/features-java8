@@ -39,6 +39,7 @@ public class Main {
         StreamUseCase.streamReferencing();
         StreamUseCase.pipeline();
         StreamUseCase.lazyInvocation();
+        StreamUseCase.orderOfExecution();
         Main.printSeparetor();
 
         //Interface:
