@@ -11,6 +11,8 @@ import java.util.stream.*;
 
 public class StreamUseCase {
 
+    private static int counter;
+
     /**
      * Create and an empty Stream
      */
@@ -218,7 +220,7 @@ public class StreamUseCase {
         printString.forEach(System.out::print);
         System.out.println();
 
-        /**
+        /*
          * If we need more than one modification, we can chain intermediate operations. Let’s assume that we also need
          * to substitute every element of the current Stream<String> with a sub-string of the first few chars.
          * We can do this by chaining the skip() and map() methods:
@@ -227,13 +229,48 @@ public class StreamUseCase {
         System.out.print("onceModifiedStream.skip(1).map(string -> string.substring(0, 3)): ");
         twinceModifiedString.forEach(System.out::print);
 
-        /**
+        /*
          * The correct and most convenient way to use streams is by a stream pipeline, which is a chain of the stream
          * source, intermediate operations, and a terminal operation:
          */
         Long size = Stream.of("abc", "abc2", "abc3").skip(1)
                 .map(element -> element.substring(0, 3)).count();
+    }
 
+    /**
+     * Intermediate operations are lazy. This means that they will be invoked only if it is necessary for the terminal operation execution.
+     */
+    public static void lazyInvocation() {
+        System.out.println();
+        counter = 0;
+       Stream<String> stringStream = Stream.of("abc", "abc2", "abc3").filter(element -> {
+            wasCalled();
+            return element.contains("2");
+        });
+       System.out.print("Stream.of(\"abc\", \"abc2\", \"abc3\").filter(element -> {\n" +
+               "            wasCalled();\n" +
+               "            return element.contains(\"2\");\n" +
+               "        });");
+        System.out.println(" Counter: " + counter);
+       //stringStream.forEach(System.out::print); // if strinStream are not consumed then filter method is not called. terminal operation
+        /*
+           As we have a source of three elements, we can assume that the filter() method will be called three times, and
+           the value of the counter variable will be 3. However, running this code doesn’t change counter at all, it is
+           still zero, so the filter() method wasn’t even called once. The reason why is missing of the terminal operation.
+
+           Let’s rewrite this code a little bit by adding a map() operation and a terminal operation, findFirst().
+           We will also add the ability to track the order of method calls with the help of logging:
+         */
+        counter = 0;
+        Optional<String> optionalString =  Stream.of("abc", "abc2", "abc3").filter(element -> {
+            System.out.println("filter() was called");
+            wasCalled();
+            return element.contains("2");
+        }).map((element) -> {
+            System.out.println("map() was called");
+            return element.toUpperCase();
+        }).findFirst();
+        System.out.println("Counter: "+ counter);
     }
 
 
@@ -259,5 +296,9 @@ public class StreamUseCase {
     private static <T> void printStream(Stream<T> stream) {
         stream.forEach((System.out::print));
         System.out.println();
+    }
+
+    private static void wasCalled() {
+        counter++;
     }
 }

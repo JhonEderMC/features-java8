@@ -38,6 +38,7 @@ public class Main {
         StreamUseCase.mapCovertToPath();
         StreamUseCase.streamReferencing();
         StreamUseCase.pipeline();
+        StreamUseCase.lazyInvocation();
         Main.printSeparetor();
 
         //Interface:
