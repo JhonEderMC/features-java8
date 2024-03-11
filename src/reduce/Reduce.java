@@ -25,8 +25,13 @@ public class Reduce {
         //Uses method reference
         result = numbers.stream().reduce(0, Integer::sum);
         System.out.println("Result sum: "+ result);
+    }
 
-        //educedTwoParams = 16 (10 + 1 + 2 + 3)
+    public static void range() {
+       int result = IntStream.range(1,4).reduce(0, Integer::sum);
+       System.out.println("IntStream.range(1,4): " + result);
+
+        //reducedTwoParams = 16 (10 + 1 + 2 + 3)
         result = Stream.of(1, 2, 3).reduce(10, (a ,b) -> a+b,
                 (a,b )-> {
                     System.out.print("combiner was called");
@@ -56,11 +61,6 @@ public class Reduce {
             These actions are being done in parallel. As a result, they have (10 + 1 = 11; 10 + 2 = 12; 10 + 3 = 13;).
             Now combiner can merge these three results. It needs two iterations for that (12 + 13 = 25; 25 + 11 = 36).
          */
-    }
-
-    public static void range() {
-       int sum = IntStream.range(1,4).reduce(0, Integer::sum);
-       System.out.println("IntStream.range(1,4): " + sum);
     }
 
     public static void concatLetters() {
