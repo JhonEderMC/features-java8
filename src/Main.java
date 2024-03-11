@@ -10,6 +10,7 @@ public class Main {
         Main.printSeparetor();
         System.out.println("---------- Reduce ------------");
         Reduce.sumNumbers();
+        Reduce.range();
         Reduce.concatLetters();
         Reduce.concatUpperCaseLetters();
         Reduce.sumNumbersParallel();

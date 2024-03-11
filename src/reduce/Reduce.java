@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Reduce {
 
@@ -23,6 +25,42 @@ public class Reduce {
         //Uses method reference
         result = numbers.stream().reduce(0, Integer::sum);
         System.out.println("Result sum: "+ result);
+
+        //educedTwoParams = 16 (10 + 1 + 2 + 3)
+        result = Stream.of(1, 2, 3).reduce(10, (a ,b) -> a+b,
+                (a,b )-> {
+                    System.out.print("combiner was called");
+                    return a + b;
+                });
+        System.out.println("Stream.of(1, 2, 3).reduce(10, (a ,b) -> a+b,\n" +
+                "                (a,b )-> {\n" +
+                "                    System.out.print(\"cobiner was called\");\n" +
+                "                    return a + b;\n" +
+                "                }): " + result);
+        /* The result will be the same as in the previous example (16), and there will be no login, which means that
+            combiner wasn’t called. To make a combiner work, a stream should be parallel:
+         */
+        result = Arrays.asList(1,2,3).stream().parallel().reduce(10, Integer::sum,
+                (partialSum, number) -> {
+                    System.out.print("combiner was called");
+                    return  partialSum + number;
+                });
+        System.out.println("Arrays.asList(1,2,3).stream().parallel().reduce(10, Integer::sum,\n" +
+                "                (partialSum, number) -> {\n" +
+                "                    System.out.print(\"cobiner was called\");\n" +
+                "                    return  partialSum + number;\n" +
+                "                }): " + result);
+        /*
+            The result here is different (36), and the combiner was called twice. Here the reduction works by the
+            following algorithm: the accumulator ran three times by adding every element of the stream to identity.
+            These actions are being done in parallel. As a result, they have (10 + 1 = 11; 10 + 2 = 12; 10 + 3 = 13;).
+            Now combiner can merge these three results. It needs two iterations for that (12 + 13 = 25; 25 + 11 = 36).
+         */
+    }
+
+    public static void range() {
+       int sum = IntStream.range(1,4).reduce(0, Integer::sum);
+       System.out.println("IntStream.range(1,4): " + sum);
     }
 
     public static void concatLetters() {
@@ -79,7 +117,7 @@ public class Reduce {
     }
 
     public static void minNumber() {
-        Integer min = numbers.stream().reduce(0, (minNumber, number) -> minNumber = minNumber <= number ? minNumber : number);
+        Integer min = numbers.stream().reduce(0, (minNumber, number) -> minNumber <= number ? minNumber : number);
         System.out.println("Min number is: " +  min);
     }
 
