@@ -27,7 +27,9 @@ public class Main {
         Main.printSeparetor();
         System.out.println("---------- Collector ------------");
         CollectMethodUse.toListString();
-        CollectMethodUse.toListStringJoing();
+        CollectMethodUse.toListStringJoining();
+        CollectMethodUse.toListPrice();
+        Main.printSeparetor();
 
         // Stream
         Main.printSeparetor();

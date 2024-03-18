@@ -21,11 +21,20 @@ public class CollectMethodUse {
         productNames.forEach(productName -> System.out.print(" - " + productName));
     }
 
-    public static void toListStringJoing() {
+    public static void toListStringJoining() {
         String listString = products.stream().map(Product::getName).collect(Collectors.joining(",", "[", "]"));
 
         System.out.println("\nproducts.stream().map(Product::getName).collect(Collectors.joining(\",\", \"[\", \"]\")):  " + listString);
     }
+
+    public static void toListPrice() {
+        List<Integer> prices = products.stream().map(Product::getPrice).collect(Collectors.toList());
+        System.out.print("products.stream().map(Product::getPrice).collect(Collectors.toList()): ");
+
+        prices.forEach(price -> System.out.print("  "+ price));
+    }
+
+
 
 
 }
