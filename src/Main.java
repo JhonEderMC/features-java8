@@ -1,3 +1,4 @@
+import collect.CollectMethodUse;
 import methodreference.MethodReference;
 import newinterface.RunCasesInterface;
 import optional.UseOptional;
@@ -21,6 +22,12 @@ public class Main {
         Reduce.minNumber();
         Reduce.maxNumber();
         Main.printSeparetor();
+
+        //Collector
+        Main.printSeparetor();
+        System.out.println("---------- Collector ------------");
+        CollectMethodUse.toListString();
+        CollectMethodUse.toListStringJoing();
 
         // Stream
         Main.printSeparetor();
