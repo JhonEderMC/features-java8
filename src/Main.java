@@ -29,6 +29,8 @@ public class Main {
         CollectMethodUse.toListString();
         CollectMethodUse.toListStringJoining();
         CollectMethodUse.toListPrice();
+        CollectMethodUse.averagePrice();
+        CollectMethodUse.toSumAll();
         Main.printSeparetor();
 
         // Stream

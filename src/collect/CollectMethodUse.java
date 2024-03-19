@@ -34,7 +34,13 @@ public class CollectMethodUse {
         prices.forEach(price -> System.out.print("  "+ price));
     }
 
-
+    public static void toSumAll() {
+        // Use stream with mapToIng and later sum
+        int sumAll = products.stream().mapToInt(Product::getPrice).sum();
+        System.out.println("\nproducts.stream().mapToInt(Product::getPrice).sum(): " + sumAll);
+        sumAll = products.stream().collect(Collectors.summingInt(Product::getPrice));
+        System.out.println("products.stream().collect(Collectors.summingInt(Product::getPrice)): " + sumAll);
+    }
 
 
 }
