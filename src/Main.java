@@ -31,6 +31,7 @@ public class Main {
         CollectMethodUse.toListPrice();
         CollectMethodUse.toSumAll();
         CollectMethodUse.averagePrice();
+        CollectMethodUse.intSummaryStatistics();
         Main.printSeparetor();
 
         // Stream

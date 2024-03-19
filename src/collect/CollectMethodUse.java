@@ -1,6 +1,7 @@
 package collect;
 
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,6 +55,20 @@ public class CollectMethodUse {
         // Use average
         Double average1 = products.stream().collect(Collectors.averagingLong(Product::getPrice));
         System.out.print("Average Collect: products.stream().collect(Collectors.averagingLong(Product::getPrice)):  " + average1);
+    }
+
+    /**
+     * By using the resulting instance of type IntSummaryStatistics, the developer can create a statistical report by
+     * applying the toString() method. The result will be a String common to this one “IntSummaryStatistics{count=5, sum=86, min=13, average=17,200000, max=23}.”
+     */
+    public static void intSummaryStatistics() {
+        IntSummaryStatistics summaryStatistics = products.stream().collect(Collectors.summarizingInt(Product::getPrice));
+
+        System.out.println("\nIntSummaryStatistics: " + summaryStatistics);
+        /*
+            It is also easy to extract from this object separate values for count, sum, min, and average by applying the
+            methods getCount(), getSum(), getMin(), getAverage(), and getMax(). All of these values can be extracted from a single pipeline.
+         */
     }
 
 
