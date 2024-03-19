@@ -42,5 +42,19 @@ public class CollectMethodUse {
         System.out.println("products.stream().collect(Collectors.summingInt(Product::getPrice)): " + sumAll);
     }
 
+    /**
+     * The methods averagingXX(), summingXX() and summarizingXX() can work with primitives (int, long, double) and with
+     * their wrapper classes (Integer, Long, Double). One more powerful feature of these methods is providing the mapping.
+     * As a result, the developer doesn’t need to use an additional map() operation before the collect() method.
+     */
+    public static void averagePrice() {
+        // Use reduce
+        float average = ((float)(products.stream().map(Product::getPrice).reduce(0, Integer::sum)) / ((float) products.size()));
+        System.out.println("\nAverage Stream: ((float)(products.stream().map(Product::getPrice).reduce(0, Integer::sum)) / ((float) products.size())):  " + average);
+        // Use average
+        Double average1 = products.stream().collect(Collectors.averagingLong(Product::getPrice));
+        System.out.print("Average Collect: products.stream().collect(Collectors.averagingLong(Product::getPrice)):  " + average1);
+    }
+
 
 }
