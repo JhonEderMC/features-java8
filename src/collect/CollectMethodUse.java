@@ -3,6 +3,7 @@ package collect;
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -70,6 +71,24 @@ public class CollectMethodUse {
             methods getCount(), getSum(), getMin(), getAverage(), and getMax(). All of these values can be extracted from a single pipeline.
          */
     }
+
+    /**
+     * Grouping of stream’s elements according to the specified function
+     */
+    public static void toGroupingBy() {
+        Map<Integer, List<Product>> collectorMapList = products.stream().collect(Collectors.groupingBy(Product::getPrice));
+        System.out.println("toGroupingBy: products.stream().collect(Collectors.groupingBy(Product::getPrice)):\n  ");
+
+        products.forEach( product -> {
+            System.out.println("Group with price: " + product.getPrice());
+            List<Product> list = collectorMapList.get(product.getPrice());
+            list.forEach(System.out::println);
+        });
+
+
+    }
+
+
 
 
 }
