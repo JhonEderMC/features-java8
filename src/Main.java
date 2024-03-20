@@ -33,6 +33,7 @@ public class Main {
         CollectMethodUse.averagePrice();
         CollectMethodUse.intSummaryStatistics();
         CollectMethodUse.toGroupingBy();
+        CollectMethodUse.toMapPartionedBy();
         Main.printSeparetor();
 
         // Stream

@@ -77,18 +77,30 @@ public class CollectMethodUse {
      */
     public static void toGroupingBy() {
         Map<Integer, List<Product>> collectorMapList = products.stream().collect(Collectors.groupingBy(Product::getPrice));
-        System.out.println("toGroupingBy: products.stream().collect(Collectors.groupingBy(Product::getPrice)):\n  ");
+        System.out.println("\ntoGroupingBy: products.stream().collect(Collectors.groupingBy(Product::getPrice)): ");
+        // In the example above, the stream was reduced to the Map, which groups all products by their price.
 
         products.forEach( product -> {
             System.out.println("Group with price: " + product.getPrice());
             List<Product> list = collectorMapList.get(product.getPrice());
             list.forEach(System.out::println);
         });
-
-
     }
 
+    /**
+     * Dividing stream’s elements into groups according to some predicate:
+     */
+    public static void toMapPartionedBy() {
+        Map<Boolean, List<Product>> mapPartioned = products.stream().collect(Collectors.partitioningBy( product -> product.getPrice() > 15));
+        System.out.println("\ntoMapPartionedBy: products.stream().collect(Collectors.partitioningBy( product -> product.getPrice() > 15)): ");
 
+        List<Product> productList = mapPartioned.get(Boolean.TRUE);
+        System.out.println("Grouping By Boolean.True: ");
+        productList.forEach(System.out::println);
+        productList = mapPartioned.get(Boolean.FALSE);
+        System.out.println("Grouping By Boolean.FALSE: ");
+        productList.forEach(System.out::println);
+    }
 
 
 }
