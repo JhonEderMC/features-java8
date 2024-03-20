@@ -1,9 +1,6 @@
 package collect;
 
-import java.util.Arrays;
-import java.util.IntSummaryStatistics;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -100,6 +97,16 @@ public class CollectMethodUse {
         productList = mapPartioned.get(Boolean.FALSE);
         System.out.println("Grouping By Boolean.FALSE: ");
         productList.forEach(System.out::println);
+    }
+
+    /**
+     * Pushing the collector to perform additional transformation:
+     */
+    public static void toCollectingAndThen() {
+        Set<Product> unmodifiableSet = products.stream().collect(Collectors.collectingAndThen(Collectors.toSet(), Collections::unmodifiableSet));
+
+        System.out.println("\nproducts.stream().collect(Collectors.collectingAndThen(Collectors.toSet(), Collections::unmodifiableSet)): \n"+ unmodifiableSet);
+        //In this particular case, the collector has converted a stream to a Set, and then created the unchangeable Set out of it.
     }
 
 
