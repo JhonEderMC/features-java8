@@ -35,6 +35,7 @@ public class Main {
         CollectMethodUse.toGroupingBy();
         CollectMethodUse.toMapPartionedBy();
         CollectMethodUse.toCollectingAndThen();
+        CollectMethodUse.toCustomCollector();
         Main.printSeparetor();
 
         // Stream

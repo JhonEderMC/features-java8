@@ -1,6 +1,7 @@
 package collect;
 
 import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -107,6 +108,25 @@ public class CollectMethodUse {
 
         System.out.println("\nproducts.stream().collect(Collectors.collectingAndThen(Collectors.toSet(), Collections::unmodifiableSet)): \n"+ unmodifiableSet);
         //In this particular case, the collector has converted a stream to a Set, and then created the unchangeable Set out of it.
+    }
+
+    /**
+     * If for some reason a custom collector should be created, the easiest and least verbose way of doing so is to use the method of() of the type Collector.
+     */
+    public static void toCustomCollector() {
+        Collector<Product, ?, LinkedList<Product>> toLinkedList = Collector.of(LinkedList::new, LinkedList::add,
+                (first, second) -> {
+                    first.addAll(second);
+                    return first;
+                });
+        LinkedList<Product> linkedListOfPersons = products.stream().collect(toLinkedList);
+
+        System.out.println("\nCollector<Product, ?, LinkedList<Product>> toLinkedList = Collector.of(LinkedList::new, LinkedList::add,\n" +
+                "                (first, second) -> {\n" +
+                "                    first.addAll(second);\n" +
+                "                    return first;\n" +
+                "                });");
+        System.out.println(linkedListOfPersons);
     }
 
 
