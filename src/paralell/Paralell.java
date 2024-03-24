@@ -4,6 +4,7 @@ import collect.Product;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * Before Java 8, parallelization was complex. The emergence of the ExecutorService and the ForkJoin
@@ -23,5 +24,22 @@ public class Paralell {
         boolean isParalell = products.parallelStream().isParallel();
 
         System.out.println("products.parallelStream().isParallel(): "+ isParalell);
+    }
+
+    public static void bigPrice() {
+        boolean bigPrice = products.parallelStream().map(product -> product.getPrice()*12).anyMatch( price -> price > 200);
+        System.out.println("products.parallelStream().map(product -> product.getPrice()*12).anyMatch( price -> price > 200): " + bigPrice);
+    }
+
+    /**
+     * If the source of a stream is something other than a Collection or an array, the parallel() method should be used
+     */
+    public static void intStreamParalell() {
+        IntStream intStream = IntStream.range(1,150).parallel();
+        boolean isParalell = intStream.isParallel();
+
+        System.out.println("IntStream intStream = IntStream.range(1,150).parallel();\n" +
+                "        boolean isParalell = intStream.isParallel();");
+        System.out.println("isParalell: " + isParalell);
     }
 }

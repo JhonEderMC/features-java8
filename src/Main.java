@@ -83,9 +83,12 @@ public class Main {
 
         //Paralell
         Main.printSeparetor();
-        System.out.println("---------- Paralell ------------");
+        System.out.println("---------- Parallel ------------");
         Paralell.isParalell();
+        Paralell.bigPrice();
+        Paralell.intStreamParalell();
         Main.printSeparetor();
+
     }
 
     public static void printSeparetor() {
