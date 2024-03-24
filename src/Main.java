@@ -2,6 +2,7 @@ import collect.CollectMethodUse;
 import methodreference.MethodReference;
 import newinterface.RunCasesInterface;
 import optional.UseOptional;
+import paralell.Paralell;
 import reduce.Reduce;
 import stream.StreamUseCase;
 
@@ -73,9 +74,18 @@ public class Main {
         MethodReference.referenceInstanceMethodObjectParticularType();
 
         //Optional
+        Main.printSeparetor();
+        System.out.println("---------- Optional ------------");
         UseOptional.orElseGet();
         UseOptional.defaultAdressIfnotIxist();
         UseOptional.listUserAdress();
+        Main.printSeparetor();
+
+        //Paralell
+        Main.printSeparetor();
+        System.out.println("---------- Paralell ------------");
+        Paralell.isParalell();
+        Main.printSeparetor();
     }
 
     public static void printSeparetor() {
