@@ -23,6 +23,14 @@ Java 8 Optional<T> class can help to handle situations where there is a possibil
 It can return a value of this object if this value is not a null. When the value inside this container is null, it allows 
 doing some predefined actions instead of throwing NPE.
 
+## Paralell
+Before Java 8, parallelization was complex. The emergence of the ExecutorService and the ForkJoin simplified a developer’s 
+life a little bit, but it was still worth remembering how to create a specific executor, how to run it, and so on. Java 8 
+introduced a way of accomplishing parallelism in a functional style.
+
+The API allows us to create parallel streams, which perform operations in a parallel mode. When the source of a stream is 
+a Collection or an array, it can be achieved with the help of the parallelStream() method
+
 ## Conclusion
 The Stream API is a powerful, but simple to understand set of tools for processing the sequence of elements. When used properly, 
 it allows us to reduce a huge amount of boilerplate code, create more readable programs, and improve an app’s productivity.
