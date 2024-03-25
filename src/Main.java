@@ -87,6 +87,7 @@ public class Main {
         Paralell.isParalell();
         Paralell.bigPrice();
         Paralell.intStreamParalell();
+        Paralell.sequential();
         Main.printSeparetor();
 
     }

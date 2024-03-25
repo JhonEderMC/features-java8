@@ -42,4 +42,15 @@ public class Paralell {
                 "        boolean isParalell = intStream.isParallel();");
         System.out.println("isParalell: " + isParalell);
     }
+
+    public static void sequential() {
+        IntStream intStream = IntStream.range(1, 150).parallel();
+        IntStream intSequential = intStream.sequential();
+        boolean isParalell = intSequential.isParallel();
+
+        System.out.println("IntStream intStream = IntStream.range(1, 150).parallel();\n" +
+                "        IntStream intSequential = intStream.sequential();\n" +
+                "        boolean isParalell = intSequential.isParallel();");
+        System.out.println("isParalell: " + isParalell);
+    }
 }
