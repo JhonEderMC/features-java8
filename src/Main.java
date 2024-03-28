@@ -1,4 +1,5 @@
 import collect.CollectMethodUse;
+import emptyList.EmptyList;
 import methodreference.MethodReference;
 import newinterface.RunCasesInterface;
 import optional.UseOptional;
@@ -83,12 +84,18 @@ public class Main {
 
         //Paralell
         Main.printSeparetor();
+
         System.out.println("---------- Parallel ------------");
         Paralell.isParalell();
         Paralell.bigPrice();
         Paralell.intStreamParalell();
         Paralell.sequential();
         Main.printSeparetor();
+
+        //EmptyList
+        Main.printSeparetor();
+        System.out.println("---------- EmptyList ------------");
+        EmptyList.handlingNullPointerExeptionBeforeJava8();
 
     }
 

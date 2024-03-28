@@ -16,5 +16,20 @@ public class EmptyList {
          */
     }
 
+    public static void handlingNullPointerExeptionBeforeJava8() {
+        List<String> nameList = getList(); // Assume getList() may return null
 
+        //without stream
+        if( nameList != null ) {
+            for (String name : nameList) {
+                System.out.println("Length of " + name + ": " + name.length());
+            }
+        }
+        //Here, in the non-stream approach, we must check for null before iterating over the List to avoid a NullPointerException.
+    }
+
+
+    private static List<String> getList() {
+        return ((int) (Math.random()*10) % 2) == 0 ? List.of("Diego", "Andrea", "Daniel", "Sara") : null;
+    }
 }
