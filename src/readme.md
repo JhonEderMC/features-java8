@@ -38,6 +38,10 @@ introduced a way of accomplishing parallelism in a functional style.
 The API allows us to create parallel streams, which perform operations in a parallel mode. When the source of a stream is 
 a Collection or an array, it can be achieved with the help of the parallelStream() method
 
+## EmptyList
+Java 8 brought a paradigm shift in the way we handle collections and data manipulation with the introduction of Streams. 
+Stream APIs offer a concise and expressive way to perform operations on data, enabling developers to write more readable, robust, and efficient code
+
 ## Conclusion
 The Stream API is a powerful, but simple to understand set of tools for processing the sequence of elements. When used properly, 
 it allows us to reduce a huge amount of boilerplate code, create more readable programs, and improve an app’s productivity.
