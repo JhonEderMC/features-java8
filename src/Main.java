@@ -95,7 +95,8 @@ public class Main {
         //EmptyList
         Main.printSeparetor();
         System.out.println("---------- EmptyList ------------");
-        EmptyList.handlingNullPointerExeptionBeforeJava8();
+        EmptyList.handlingNullPointerExceptionBeforeJava8();
+        EmptyList.handlingNullPointerException();
 
     }
 
