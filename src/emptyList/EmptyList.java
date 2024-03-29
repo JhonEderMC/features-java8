@@ -29,6 +29,10 @@ public class EmptyList {
         //Here, in the non-stream approach, we must check for null before iterating over the List to avoid a NullPointerException.
     }
 
+    /**
+     * On the other hand, using Optional and Stream, we can perform a long chain of operations without specifically handling
+     * the null checks and also avoiding NullPointerException
+     */
     public static void handlingNullPointerException() {
         List<String> nameList = getList(); // Assume getList() may return null
         System.out.println("Management Streams");
