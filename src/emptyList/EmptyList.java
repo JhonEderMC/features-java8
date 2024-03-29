@@ -58,4 +58,15 @@ public class EmptyList {
         //Here, collect() is a terminal operation, and it performs mutable reduction on the elements of the Stream.
     }
 
+    /**
+     * Similarly, performing an intermediate operation such as filter() and collecting the result in any collection would result in an empty Stream:
+     */
+    public static void collectingStreamOfEmptyListIntoList2() {
+        List<String> emptyList = new ArrayList<>();
+        List<String> collectdList = emptyList.stream().filter(string ->  string.contains("a"))
+                .collect(Collectors.toList());
+        System.out.println("emptyList.stream().filter(string ->  string.contains(\"a\"))\n" +
+                "                .collect(Collectors.toList()); " + collectdList);
+    }
+
 }

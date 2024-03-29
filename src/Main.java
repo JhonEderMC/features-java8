@@ -98,6 +98,7 @@ public class Main {
         EmptyList.handlingNullPointerExceptionBeforeJava8();
         EmptyList.handlingNullPointerException();
         EmptyList.collectingStreamOfEmptyListIntoList();
+        EmptyList.collectingStreamOfEmptyListIntoList2();
         Main.printSeparetor();
 
     }
