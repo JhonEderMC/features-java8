@@ -3,6 +3,7 @@ package emptyList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class EmptyList {
@@ -48,4 +49,13 @@ public class EmptyList {
     private static List<String> getList() {
         return ((int) (Math.random()*10) % 2) == 0 ? List.of("Diego", "Andrea", "Daniel", "Sara") : null;
     }
+
+    public static void collectingStreamOfEmptyListIntoList() {
+        List<String> emptyList = new ArrayList<>();
+        List<String> collectedList = emptyList.stream().collect(Collectors.toList());
+        System.out.println("List<String> emptyList = new ArrayList<>();\n" +
+                "        List<String> collectedList = emptyList.stream().collect(Collectors.toList()); " + collectedList);
+        //Here, collect() is a terminal operation, and it performs mutable reduction on the elements of the Stream.
+    }
+
 }
