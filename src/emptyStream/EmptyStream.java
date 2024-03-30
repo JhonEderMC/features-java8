@@ -20,5 +20,19 @@ public class EmptyStream {
      */
     public static void streamEmpty() {
         Stream<String> emptystream = Stream.empty();
+        //The empty() method returns an empty sequential Stream of type String.
+        System.out.println("Stream.empty(): " + emptystream + " isEmpty: " + (emptystream.findAny().isEmpty()));
     }
+
+    /**
+     * We can also create an empty Stream of any type using the of() method. The of() method returns a sequential
+     * ordered Stream containing the elements that are passed as parameters to it. If we don’t pass any parameter,
+     * it returns an empty Stream:
+     */
+    public static void streamOf() {
+       Stream<String> streamEmpty = Stream.of();
+       System.out.println("Stream.of(): " + streamEmpty + "isEmpty: " + streamEmpty.findAny().isEmpty() );
+    }
+
+
 }

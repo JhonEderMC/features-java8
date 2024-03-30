@@ -1,5 +1,6 @@
 import collect.CollectMethodUse;
 import emptyList.EmptyList;
+import emptyStream.EmptyStream;
 import methodreference.MethodReference;
 import newinterface.RunCasesInterface;
 import optional.UseOptional;
@@ -99,6 +100,13 @@ public class Main {
         EmptyList.handlingNullPointerException();
         EmptyList.collectingStreamOfEmptyListIntoList();
         EmptyList.collectingStreamOfEmptyListIntoList2();
+        Main.printSeparetor();
+
+        //EmptyStream
+        Main.printSeparetor();
+        System.out.println("---------- StreamEmpty ------------");
+        EmptyStream.streamEmpty();
+        EmptyStream.streamOf();
         Main.printSeparetor();
 
     }
