@@ -107,6 +107,7 @@ public class Main {
         System.out.println("---------- StreamEmpty ------------");
         EmptyStream.streamEmpty();
         EmptyStream.streamOf();
+        EmptyStream.intStream();
         Main.printSeparetor();
 
     }

@@ -1,5 +1,8 @@
 package emptyStream;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -32,6 +35,32 @@ public class EmptyStream {
     public static void streamOf() {
        Stream<String> streamEmpty = Stream.of();
        System.out.println("Stream.of(): " + streamEmpty + "isEmpty: " + streamEmpty.findAny().isEmpty() );
+    }
+
+    /**
+     * we can create a Stream of primitive types using IntStream:
+     */
+    public static void intStream() {
+        IntStream empty = IntStream.empty();
+        System.out.println("InStream.empty(): " + empty + " isEmpty: " + empty.findAny().isEmpty());
+
+        //we can create a Stream of primitive types using IntStream
+        Stream<int[]> emptyInt = Stream.of(new int[]{});
+        System.out.println("Stream.of(new int[]{}): " + emptyInt + " isEmpty: " + emptyInt.findAny().isEmpty());
+
+        /*
+         The Arrays class has a method stream() that accepts an array as a parameter and returns a Stream of the same
+         type as that of the parameter. We can use this to create an empty Stream by passing an empty array as a parameter
+         */
+        IntStream intStreamEmpty = Arrays.stream(new int[]{});
+        System.out.println("Arrays.stream(new int[]{}): " + intStreamEmpty + " isEmpty: " + intStreamEmpty.findAny().isEmpty());
+
+        /*
+        Finally, we can use the stream() method of a Collection such as a List or Set to create an empty Stream. An
+        empty collection would create an empty Stream
+         */
+        Stream<Integer> emptyIntSream = new ArrayList<Integer>().stream();
+        System.out.println("new ArrayList<Integer>().stream(): " + emptyIntSream + " isEmpty: " + emptyIntSream.findAny().isEmpty());
     }
 
 
